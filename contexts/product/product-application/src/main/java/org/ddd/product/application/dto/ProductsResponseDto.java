@@ -14,12 +14,14 @@ public class ProductsResponseDto {
     List<ProductResponseDto> responses =
         products.stream()
             .map(
-                product -> ProductResponseDto.builder()
-                    .id(product.getId().value().toString())
-                    .name(product.getName().value())
-                    .price(product.getPrice().value().toPlainString())
-                    .categoryId(product.getCategoryId().value().toString())
-                    .build())
+                product ->
+                    ProductResponseDto.builder()
+                        .id(product.getId().value().toString())
+                        .name(product.getName().value())
+                        .price(product.getPrice().value().toPlainString())
+                        .categoryId(product.getCategoryId().value().toString())
+                        .isActive(product.isActive())
+                        .build())
             .toList();
     return new ProductsResponseDto(responses);
   }

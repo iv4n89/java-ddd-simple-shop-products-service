@@ -25,4 +25,6 @@ public class ProductEntity {
   private BigDecimal price;
 
   private UUID categoryId;
+
+  private boolean isActive;
 }

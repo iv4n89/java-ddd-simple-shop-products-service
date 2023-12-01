@@ -1,7 +1,6 @@
 package org.ddd.product.application;
 
-import org.ddd.product.application.usecases.ProductCreator;
-import org.ddd.product.application.usecases.ProductFinder;
+import org.ddd.product.application.usecases.*;
 import org.ddd.product.domain.events.ProductCreatedEventPublisher;
 import org.ddd.product.domain.repository.ProductRepository;
 import org.ddd.shared.infrastructure.messaging.kafka.KafkaProducer;
@@ -18,7 +17,6 @@ public class ProductApplicationTestConfig {
     return mock(ProductRepository.class);
   }
 
-
   @Bean(name = "productFinderTest")
   public ProductFinder productFinder() {
     return new ProductFinder(productRepository());
@@ -27,6 +25,21 @@ public class ProductApplicationTestConfig {
   @Bean(name = "productCreatorTest")
   public ProductCreator productCreator() {
     return new ProductCreator(productRepository(), productCreatedEventPublisher());
+  }
+
+  @Bean(name = "productActivatorTest")
+  public ProductActivator productActivator() {
+    return new ProductActivator(productRepository());
+  }
+
+  @Bean(name = "productRenamerTest")
+  public ProductRenamer productRenamer() {
+    return new ProductRenamer(productRepository());
+  }
+
+  @Bean(name = "productPriceChangerTest")
+  public ProductPriceChanger productPriceChanger() {
+    return new ProductPriceChanger(productRepository());
   }
 
   @Bean(name = "productCreatedEventPublisherTest")

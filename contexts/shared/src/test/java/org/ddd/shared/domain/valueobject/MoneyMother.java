@@ -9,7 +9,7 @@ public class MoneyMother {
   }
 
   public static Money random() {
-    double randomValue = Math.random() * 1000;
+    double randomValue = Math.floor(Math.random() * 1000);
     return create(BigDecimal.valueOf(randomValue));
   }
 

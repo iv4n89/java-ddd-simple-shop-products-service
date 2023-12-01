@@ -22,10 +22,10 @@ public class ProductGetController {
   private final ProductFinder productFinder;
 
   @GetMapping
-  public ResponseEntity<ProductsResponseDto> findAll() {
+  public ResponseEntity<List<ProductResponseDto>> findAll() {
     List<Product> products = productFinder.find();
     ProductsResponseDto response = ProductsResponseDto.fromProducts(products);
-    return ResponseEntity.ok(response);
+    return ResponseEntity.ok(response.getResponses());
   }
 
   @GetMapping("/find/{id}")
