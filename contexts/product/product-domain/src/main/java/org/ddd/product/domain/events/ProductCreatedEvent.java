@@ -1,6 +1,5 @@
 package org.ddd.product.domain.events;
 
-import org.ddd.shared.domain.valueobject.ProductId;
 
 public class ProductCreatedEvent extends ProductEvent {
 

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.ddd</groupId>
+        <artifactId>contexts</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <artifactId>category</artifactId>
+
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>category-domain</module>
+        <module>category-application</module>
+        <module>category-infrastructure</module>
+    </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.ddd</groupId>
+            <artifactId>shared</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>

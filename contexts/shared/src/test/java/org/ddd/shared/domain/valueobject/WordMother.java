@@ -13,6 +13,10 @@ public class WordMother {
     return MotherCreator.random().lorem().characters(min, 49);
   }
 
+  public static String randomMinMax(int min, int max) {
+    return MotherCreator.random().lorem().characters(min, max);
+  }
+
   public static String randomSentence() {
     return MotherCreator.random().lorem().sentence();
   }

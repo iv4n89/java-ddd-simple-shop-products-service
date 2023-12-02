@@ -10,6 +10,9 @@ public class MoneyMother {
 
   public static Money random() {
     double randomValue = Math.floor(Math.random() * 1000);
+    if (randomValue < 0) {
+      randomValue = randomValue * -1;
+    }
     return create(BigDecimal.valueOf(randomValue));
   }
 

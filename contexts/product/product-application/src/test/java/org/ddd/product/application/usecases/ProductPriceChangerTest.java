@@ -50,7 +50,7 @@ public class ProductPriceChangerTest {
   void productPriceChangerShouldDecreasePrice() {
     // Given
     Product product = ProductMother.randomActive();
-    Money newPrice = MoneyMother.random();
+    Money newPrice = product.getPrice().subtract(BigDecimal.valueOf(1));
     Money expectedPrice = product.getPrice().subtract(newPrice);
     when(productRepository.findById(product.getId())).thenReturn(Optional.of(product));
     // When

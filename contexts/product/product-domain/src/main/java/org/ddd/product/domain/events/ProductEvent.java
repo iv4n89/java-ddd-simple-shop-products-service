@@ -3,7 +3,6 @@ package org.ddd.product.domain.events;
 import java.time.LocalDateTime;
 import org.ddd.product.domain.model.Product;
 import org.ddd.shared.domain.events.DomainEvent;
-import org.ddd.shared.domain.valueobject.ProductId;
 
 public abstract class ProductEvent implements DomainEvent<Product> {
 
