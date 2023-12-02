@@ -199,3 +199,5 @@ _contexts/category/category-domain/src/test/java/org/ddd/category/domain/model/C
 ncontexts/category/category-domain/src/test/java/org/ddd/category/domain/events/CategoryCreatedEventMother.java,1/1/119918603574e5f1b1f5ed5ca284d9d53d9a3090
 œ
 lcontexts/category/category-domain/src/test/java/org/ddd/category/domain/events/CategoryCreatedEventTest.java,c/1/c1ae2bb573437e825188e610b661d139bb0436fe
+K
+.github/workflows/maven.yml,c/7/c709f6995f23dae0da365bff70068f8288fa89e0
