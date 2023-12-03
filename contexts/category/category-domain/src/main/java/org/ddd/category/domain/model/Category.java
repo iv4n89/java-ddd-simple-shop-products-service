@@ -11,9 +11,9 @@ import org.ddd.shared.domain.valueobject.CategoryId;
 public class Category implements AggregateRoot {
 
   private final CategoryId id;
-  private final CategoryName name;
-  private final CategorySlug slug;
-  private final Integer numOfProducts;
+  private CategoryName name;
+  private CategorySlug slug;
+  private Integer numOfProducts;
   private boolean isActive;
 
   private Category(Builder builder) {
@@ -43,34 +43,19 @@ public class Category implements AggregateRoot {
     this.isActive = true;
   }
 
-  public Category rename(String newName) {
-    return Category.builder()
-        .id(this.id)
-        .name(new CategoryName(newName))
-        .slug(this.slug)
-        .numOfProducts(this.numOfProducts)
-        .isActive(this.isActive)
-        .build();
+  public void rename(String newName) {
+    this.name = new CategoryName(newName);
   }
 
-  public Category changeSlug(String newSlug) {
-    return Category.builder()
-        .id(this.id)
-        .name(this.name)
-        .slug(new CategorySlug(newSlug))
-        .numOfProducts(this.numOfProducts)
-        .isActive(this.isActive)
-        .build();
+  public void changeSlug(String newSlug) {
+    this.slug = new CategorySlug(newSlug);
   }
 
-  public Category changeNumOfProducts(Integer newNumOfProducts) {
-    return Category.builder()
-        .id(this.id)
-        .name(this.name)
-        .slug(this.slug)
-        .numOfProducts(newNumOfProducts)
-        .isActive(this.isActive)
-        .build();
+  public void changeNumOfProducts(Integer newNumOfProducts) {
+    if (newNumOfProducts < 0) {
+      throw new IllegalArgumentException("Number of products cannot be negative");
+    }
+    this.numOfProducts = newNumOfProducts;
   }
 
   public Map<String, Object> toPrimitives() {

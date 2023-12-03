@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 import org.ddd.product.application.ProductApplicationTestConfig;
 import org.ddd.product.application.exceptions.ProductNotFoundException;
@@ -62,7 +63,7 @@ class ProductFinderTest {
     // Given
     Product expected = ProductMother.randomActive();
     ProductId expectedId = expected.getId();
-    when(productRepository.findById(expectedId)).thenReturn(java.util.Optional.of(expected));
+    when(productRepository.findById(expectedId)).thenReturn(Optional.of(expected));
     // When
     Product actual = productFinder.find(expectedId.value());
     // Then
@@ -91,8 +92,11 @@ class ProductFinderTest {
     UUID expectedUUID = expectedId.value();
     when(productRepository.findById(expectedId)).thenReturn(java.util.Optional.empty());
     // When
+    Exception exception =
+        assertThrows(ProductNotFoundException.class, () -> productFinder.find(expectedUUID));
     // Then
-    assertThrows(ProductNotFoundException.class, () -> productFinder.find(expectedUUID));
+    assertEquals("Product with id " + expectedUUID + " not found", exception.getMessage());
+    verify(productRepository, times(1)).findById(expectedId);
   }
 
   @Test
@@ -102,7 +106,10 @@ class ProductFinderTest {
     when(productRepository.findByName(new ProductName(expectedName)))
         .thenReturn(java.util.Optional.empty());
     // When
+    Exception exception =
+        assertThrows(ProductNotFoundException.class, () -> productFinder.find(expectedName));
     // Then
-    assertThrows(ProductNotFoundException.class, () -> productFinder.find(expectedName));
+    assertEquals("Product with name " + expectedName + " not found", exception.getMessage());
+    verify(productRepository, times(1)).findByName(new ProductName(expectedName));
   }
 }

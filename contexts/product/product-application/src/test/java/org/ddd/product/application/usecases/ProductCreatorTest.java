@@ -62,7 +62,7 @@ class ProductCreatorTest {
     CategoryId categoryId = CategoryIdMother.random();
     // When
     assertThrows(
-        NullPointerException.class,
+        IllegalArgumentException.class,
         () ->
             productCreator.save(
                 null,
