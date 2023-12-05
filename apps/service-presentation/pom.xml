@@ -9,31 +9,26 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>product-presentation</artifactId>
+    <artifactId>service-presentation</artifactId>
 
     <dependencies>
         <dependency>
-            <groupId>org.ddd</groupId>
-            <artifactId>shared</artifactId>
-            <type>test-jar</type>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.ddd</groupId>
-            <artifactId>product-domain</artifactId>
-            <type>test-jar</type>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.ddd</groupId>
-            <artifactId>product-application</artifactId>
-            <type>test-jar</type>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-webflux</artifactId>
-            <scope>test</scope>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.ddd</groupId>
+            <artifactId>product-presentation</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.ddd</groupId>
+            <artifactId>category-presentation</artifactId>
+            <scope>runtime</scope>
         </dependency>
     </dependencies>
 

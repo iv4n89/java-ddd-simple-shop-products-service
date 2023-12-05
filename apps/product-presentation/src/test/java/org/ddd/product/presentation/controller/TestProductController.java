@@ -10,6 +10,7 @@ import org.ddd.product.domain.ProductMother;
 import org.ddd.product.domain.ProductNameMother;
 import org.ddd.product.domain.model.Product;
 import org.ddd.product.domain.valueobject.ProductName;
+import org.ddd.product.presentation.ProductTestConfig;
 import org.ddd.shared.domain.valueobject.*;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.*;
@@ -25,7 +26,7 @@ import org.springframework.test.web.reactive.server.WebTestClient;
 @Slf4j
 @EmbeddedKafka(
     partitions = 1,
-    topics = {"product-created-event"})
+    topics = {"product-created-topic"})
 @TestPropertySource(
     properties = {
       "kafka-config.bootstrap-servers=${spring.embedded.kafka.brokers}",
@@ -33,7 +34,7 @@ import org.springframework.test.web.reactive.server.WebTestClient;
     })
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_CLASS)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, classes = ProductTestConfig.class)
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.ANY)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class TestProductController {
@@ -97,7 +98,6 @@ class TestProductController {
   void testUpdateProduct() {
     testProductName = ProductNameMother.random();
     testProductPrice = MoneyMother.random();
-    testProductCategoryId = CategoryIdMother.random();
     Product product =
         ProductMother.from(
             testProductId, testProductName, testProductCategoryId, testProductPrice, true);

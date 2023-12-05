@@ -13,9 +13,39 @@
     <packaging>pom</packaging>
     <modules>
         <module>product-presentation</module>
+        <module>service-presentation</module>
+        <module>category-presentation</module>
     </modules>
 
     <dependencies>
+        <dependency>
+            <groupId>org.ddd</groupId>
+            <artifactId>product-domain</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.ddd</groupId>
+            <artifactId>product-application</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.ddd</groupId>
+            <artifactId>product-infrastructure</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.ddd</groupId>
+            <artifactId>category-domain</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.ddd</groupId>
+            <artifactId>category-application</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.ddd</groupId>
+            <artifactId>category-infrastructure</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.ddd</groupId>
+            <artifactId>shared</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>

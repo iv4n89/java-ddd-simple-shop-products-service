@@ -9,7 +9,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>product-presentation</artifactId>
+    <artifactId>category-presentation</artifactId>
 
     <dependencies>
         <dependency>
@@ -20,13 +20,13 @@
         </dependency>
         <dependency>
             <groupId>org.ddd</groupId>
-            <artifactId>product-domain</artifactId>
+            <artifactId>category-domain</artifactId>
             <type>test-jar</type>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.ddd</groupId>
-            <artifactId>product-application</artifactId>
+            <artifactId>category-application</artifactId>
             <type>test-jar</type>
             <scope>test</scope>
         </dependency>
@@ -34,6 +34,10 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-webflux</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.kafka</groupId>
+            <artifactId>spring-kafka-test</artifactId>
         </dependency>
     </dependencies>
 

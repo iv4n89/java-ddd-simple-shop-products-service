@@ -54,6 +54,17 @@ public class GlobalExceptionHandler {
     return errorDto;
   }
 
+  @ResponseBody
+  @ExceptionHandler(value = {IllegalArgumentException.class})
+  @ResponseStatus(HttpStatus.BAD_REQUEST)
+  public ErrorDto handleException(IllegalArgumentException illegalArgumentException) {
+    log.error(illegalArgumentException.getMessage(), illegalArgumentException);
+    return ErrorDto.builder()
+        .code(HttpStatus.BAD_REQUEST.getReasonPhrase())
+        .message(illegalArgumentException.getMessage())
+        .build();
+  }
+
   private String extractViolationsFromException(ConstraintViolationException violationException) {
     return violationException.getConstraintViolations().stream()
         .map(ConstraintViolation::getMessage)
