@@ -108,11 +108,10 @@ class CategoryTest {
     assertNotEquals(expectedObject.getName(), newName);
 
     // When
-    Category actualObject = expectedObject.rename(newName.value());
+    expectedObject.rename(newName.value());
 
     // Then
-    assertEquals(actualObject.getName(), newName);
-    assertEquals(actualObject.getId(), expectedObject.getId());
+    assertEquals(newName, expectedObject.getName());
   }
 
   @Test
@@ -123,11 +122,10 @@ class CategoryTest {
     assertEquals(expectedObject.getName(), newName);
 
     // When
-    Category actualObject = expectedObject.rename(newName.value());
+    expectedObject.rename(newName.value());
 
     // Then
-    assertEquals(actualObject.getName(), newName);
-    assertEquals(actualObject.getId(), expectedObject.getId());
+    assertEquals(newName, expectedObject.getName());
   }
 
   @Test
@@ -138,26 +136,26 @@ class CategoryTest {
     assertNotEquals(expectedObject.getNumOfProducts(), newNumOfProducts);
 
     // When
-    Category actualObject = expectedObject.changeNumOfProducts(newNumOfProducts);
+    expectedObject.changeNumOfProducts(newNumOfProducts);
 
     // Then
-    assertEquals(actualObject.getNumOfProducts(), newNumOfProducts);
-    assertEquals(actualObject.getId(), expectedObject.getId());
+    assertEquals(newNumOfProducts, expectedObject.getNumOfProducts());
   }
 
   @Test
   void testCategorySlugShouldBeChanged() {
     // Given
     Category expectedObject = category;
+    CategorySlug slug = expectedObject.getSlug();
     CategorySlug newSlug = CategorySlugMother.random();
     assertNotEquals(expectedObject.getSlug(), newSlug);
 
     // When
-    Category actualObject = expectedObject.changeSlug(newSlug.value());
+    expectedObject.changeSlug(newSlug.value());
 
     // Then
-    assertEquals(actualObject.getSlug(), newSlug);
-    assertEquals(actualObject.getId(), expectedObject.getId());
+    assertEquals(newSlug, expectedObject.getSlug());
+    assertNotEquals(slug, expectedObject.getSlug());
   }
 
     @Test

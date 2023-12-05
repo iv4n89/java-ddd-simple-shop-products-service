@@ -196,10 +196,12 @@ class PostgresProductRepositoryTest {
         when(productJpaRepositoryTest.save(any())).thenThrow(new RuntimeException());
 
         // When
-        assertThrows(RuntimeException.class, () -> postgresProductRepositoryTest.save(expected));
+        RuntimeException runtimeException = assertThrows(RuntimeException.class, () -> postgresProductRepositoryTest.save(expected));
 
         // Then
         verify(productJpaRepositoryTest, times(1)).save(any());
         verifyNoMoreInteractions(productJpaRepositoryTest);
+
+        assertEquals("java.lang.RuntimeException", runtimeException.getClass().getName());
     }
 }

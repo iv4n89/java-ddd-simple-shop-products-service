@@ -12,4 +12,6 @@ public interface ProductRepository {
     Optional<Product> findById(ProductId id);
     Optional<Product> findByName(ProductName name);
     Product save(Product product);
+
+    boolean existsById(ProductId id);
 }

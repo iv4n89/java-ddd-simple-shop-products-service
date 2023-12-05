@@ -40,4 +40,8 @@ public class PostgresProductRepository implements ProductRepository {
     return ProductDataMapper.toDomain(productJpaRepository.save(productEntity));
   }
 
+  @Override
+  public boolean existsById(ProductId id) {
+    return productJpaRepository.existsById(id.value());
+  }
 }

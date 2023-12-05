@@ -27,3 +27,4 @@ server:
 kafka-config:
   bootstrap-servers: localhost:19092, localhost:29092, localhost:39092
   product-created-topic: product-created-topic
+  category-created-topic: category-created-topic
