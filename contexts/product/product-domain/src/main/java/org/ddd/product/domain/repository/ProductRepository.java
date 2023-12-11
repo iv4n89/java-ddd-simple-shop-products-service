@@ -8,10 +8,13 @@ import java.util.List;
 import java.util.Optional;
 
 public interface ProductRepository {
-    List<Product> findAll();
-    Optional<Product> findById(ProductId id);
-    Optional<Product> findByName(ProductName name);
-    Product save(Product product);
+  List<Product> findAll();
 
-    boolean existsById(ProductId id);
+  Optional<Product> findById(ProductId id);
+
+  Optional<Product> findByName(ProductName name);
+
+  Product save(Product product);
+
+  boolean existsById(ProductId id);
 }

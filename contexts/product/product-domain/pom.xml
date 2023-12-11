@@ -11,4 +11,12 @@
 
     <artifactId>product-domain</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.ddd</groupId>
+            <artifactId>products-shared</artifactId>
+            <type>test-jar</type>
+        </dependency>
+    </dependencies>
+
 </project>

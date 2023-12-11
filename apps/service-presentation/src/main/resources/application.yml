@@ -41,7 +41,7 @@ kafka-consumer-config:
   session-timeout-ms: 10000
   heartbeat-interval-ms: 3000
 
-producer-service:
+product-service:
   product-created-topic: product-created-topic
   category-created-topic: category-created-topic
   category-created-group-id: category-created-group-id

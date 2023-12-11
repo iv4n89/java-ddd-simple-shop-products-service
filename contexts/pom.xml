@@ -12,7 +12,6 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>shared</module>
         <module>product</module>
         <module>category</module>
     </modules>

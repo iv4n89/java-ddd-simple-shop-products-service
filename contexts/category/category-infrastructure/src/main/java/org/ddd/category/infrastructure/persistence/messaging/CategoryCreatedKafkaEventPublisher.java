@@ -4,8 +4,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.ddd.category.domain.events.CategoryCreatedEvent;
 import org.ddd.category.domain.events.CategoryCreatedEventPublisher;
-import org.ddd.shared.infrastructure.messaging.kafka.KafkaProducer;
-import org.springframework.beans.factory.annotation.Value;
+import org.ddd.shared.infrastructure.kafka.KafkaProducer;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
@@ -16,17 +15,15 @@ import org.springframework.stereotype.Component;
 public class CategoryCreatedKafkaEventPublisher implements CategoryCreatedEventPublisher {
 
   private final KafkaProducer<CategoryCreatedEvent> kafkaProducer;
-
-  @Value(("${kafka-config.category-created-topic}"))
-  private String topic;
+  private final CategoryKafkaConfig categoryKafkaConfig;
 
   @Override
   public void publish(CategoryCreatedEvent event) {
     try {
-      log.info("Sending message: {} to topic: {}", event, topic);
-      kafkaProducer.send(topic, event);
+      log.info("Sending message: {} to topic: {}", event, categoryKafkaConfig.getCategoryCreatedTopic());
+      kafkaProducer.send(categoryKafkaConfig.getCategoryCreatedTopic(), event);
     } catch (Exception ex) {
-      log.error("Error sending payload = {} for topic = {}", event, topic);
+      log.error("Error sending payload = {} for topic = {}", event, categoryKafkaConfig.getCategoryCreatedTopic());
     }
   }
 }

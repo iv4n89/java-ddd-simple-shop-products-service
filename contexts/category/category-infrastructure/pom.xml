@@ -14,6 +14,12 @@
     <dependencies>
         <dependency>
             <groupId>org.ddd</groupId>
+            <artifactId>products-shared</artifactId>
+            <type>test-jar</type>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.ddd</groupId>
             <artifactId>category-domain</artifactId>
         </dependency>
         <dependency>
@@ -25,12 +31,6 @@
         <dependency>
             <groupId>org.ddd</groupId>
             <artifactId>category-application</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.ddd</groupId>
-            <artifactId>shared</artifactId>
-            <type>test-jar</type>
-            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

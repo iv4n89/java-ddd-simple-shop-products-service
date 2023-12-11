@@ -1,5 +1,6 @@
 package org.ddd.product.domain.events;
 
-import org.ddd.shared.domain.ports.out.message.publisher.DomainEventPublisher;
+
+import org.ddd.shared.domain.publisher.DomainEventPublisher;
 
 public interface ProductCreatedEventPublisher extends DomainEventPublisher<ProductCreatedEvent> {}

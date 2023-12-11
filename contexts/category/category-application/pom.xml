@@ -14,17 +14,17 @@
     <dependencies>
         <dependency>
             <groupId>org.ddd</groupId>
-            <artifactId>category-domain</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.ddd</groupId>
-            <artifactId>category-domain</artifactId>
+            <artifactId>products-shared</artifactId>
             <type>test-jar</type>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.ddd</groupId>
-            <artifactId>shared</artifactId>
+            <artifactId>category-domain</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.ddd</groupId>
+            <artifactId>category-domain</artifactId>
             <type>test-jar</type>
             <scope>test</scope>
         </dependency>

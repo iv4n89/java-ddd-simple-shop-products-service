@@ -3,7 +3,6 @@ package org.ddd.product.application;
 import org.ddd.product.application.usecases.*;
 import org.ddd.product.domain.events.ProductCreatedEventPublisher;
 import org.ddd.product.domain.repository.ProductRepository;
-import org.ddd.shared.infrastructure.messaging.kafka.KafkaProducer;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 

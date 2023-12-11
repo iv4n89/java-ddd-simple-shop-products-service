@@ -19,7 +19,7 @@ import static org.mockito.Mockito.*;
 
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 @SpringBootTest(classes = ProductApplicationTestConfig.class)
-public class ProductRenamerTest {
+class ProductRenamerTest {
 
   @Autowired
   @Qualifier("productRenamerTest")

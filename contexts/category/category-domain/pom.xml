@@ -14,7 +14,7 @@
     <dependencies>
         <dependency>
             <groupId>org.ddd</groupId>
-            <artifactId>shared</artifactId>
+            <artifactId>products-shared</artifactId>
             <type>test-jar</type>
             <scope>test</scope>
         </dependency>

@@ -21,7 +21,7 @@ import org.springframework.test.annotation.DirtiesContext;
 
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 @SpringBootTest(classes = ProductApplicationTestConfig.class)
-public class ProductPriceChangerTest {
+class ProductPriceChangerTest {
 
   @Autowired
   @Qualifier("productPriceChangerTest")
