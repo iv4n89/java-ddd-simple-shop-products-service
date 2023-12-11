@@ -4,7 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.ddd.category.application.exceptions.CategoryNotFoundException;
 import org.ddd.category.domain.exceptions.CategoryDomainException;
 import org.ddd.shared.application.ErrorDto;
-import org.ddd.shared.infrastructure.handler.GlobalExceptionHandler;
+import org.ddd.shared.infrastructure.exception.handler.GlobalExceptionHandler;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

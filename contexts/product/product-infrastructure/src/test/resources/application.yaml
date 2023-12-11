@@ -1,0 +1,26 @@
+kafka-config:
+  bootstrap-servers: ${spring.embedded.kafka.brokers}
+  num-of-partitions: 3
+  replication-factor: 3
+
+kafka-producer-config:
+  key-serialization-class: org.apache.kafka.common.serialization.StringSerializer
+  value-serialization-class: org.springframework.kafka.support.serializer.JsonSerializer
+  request-timeout-ms: 60000
+  retry-count: 5
+
+kafka-consumer-config:
+  key-deserialization-class: org.apache.kafka.common.serialization.StringDeserializer
+  value-deserialization-class: org.springframework.kafka.support.serializer.JsonDeserializer
+  session-timeout-ms: 10000
+  heartbeat-interval-ms: 3000
+
+product-service:
+  product-created-topic: product-created-topic
+  category-created-topic: category-created-topic
+  category-created-group-id: category-created-group-id
+
+category-service:
+  category-created-topic: category-created-topic
+  product-created-topic: product-created-topic
+  product-created-group-id: product-created-group-id

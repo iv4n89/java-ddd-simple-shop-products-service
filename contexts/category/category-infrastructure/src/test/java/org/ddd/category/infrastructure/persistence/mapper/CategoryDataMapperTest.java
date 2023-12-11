@@ -16,12 +16,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.kafka.test.context.EmbeddedKafka;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.TestPropertySource;
+import org.springframework.test.context.TestPropertySources;
 
 @DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_CLASS)
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.ANY)
 @SpringBootTest(classes = CategoryInfrastructureTestConfiguration.class)
 @EmbeddedKafka(partitions = 1, topics = {"category-created-event"})
-@TestPropertySource(properties = {"kafka-config.bootstrap-servers=${spring.embedded.kafka.brokers}", "kafka-config.category-created-topic=category-created-topic"})
 class CategoryDataMapperTest {
 
     @Test

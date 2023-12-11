@@ -23,11 +23,6 @@ import org.springframework.test.context.TestPropertySource;
 @EmbeddedKafka(
     partitions = 1,
     topics = {"product-created-event"})
-@TestPropertySource(
-    properties = {
-      "kafka-config.bootstrap-servers=${spring.embedded.kafka.brokers}",
-      "kafka-config.product-created-topic=product-created-topic"
-    })
 class ProductDataMapperTest {
 
   @Test
